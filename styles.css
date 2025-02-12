@@ -1,0 +1,191 @@
+/* Основные стили */
+body {
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ff9a9e);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    color: #8b0000;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Параллакс-эффект */
+.parallax {
+    background-image: url('background.jpg');
+    /* Замени на своё изображение */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Статичные сердечки */
+.heart {
+    font-size: 3em;
+    cursor: pointer;
+    color: #ff1493;
+    display: inline-block;
+    margin: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    animation: pulse 2s infinite;
+    /* Неоновое свечение */
+    background: rgba(255, 255, 255, 0.2);
+    /* Лёгкий фон */
+    border-radius: 50%;
+    /* Круглая форма */
+    padding: 10px;
+    /* Отступы */
+}
+
+.heart:hover {
+    transform: scale(1.2);
+    color: #ff69b4;
+}
+
+/* Сообщения с плавным появлением */
+.message {
+    display: none;
+    font-size: 1.5em;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Секретное сообщение */
+.secret {
+    margin-top: 100px;
+    /* Увеличиваем отступ */
+    font-size: 1.5em;
+    color: #ff1493;
+    opacity: 0;
+    transition: opacity 1s ease;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Игра "Собери сердечки" */
+#game {
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+#score {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* Сердечки в игре */
+.game-heart {
+    font-size: 3em;
+    cursor: pointer;
+    color: #ff69b4;
+    /* Другой цвет */
+    position: absolute;
+    animation: float 3s ease-in-out infinite, rotate 5s linear infinite;
+    /* Анимация плавания и вращения */
+    opacity: 0.9;
+    /* Лёгкая прозрачность */
+}
+
+/* Кнопка с градиентом */
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
