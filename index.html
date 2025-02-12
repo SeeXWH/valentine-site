@@ -5,97 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>С Днём Святого Валентина!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffebf2;
-            color: #8b0000;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        .heart {
-            font-size: 3em;
-            cursor: pointer;
-            color: #ff1493;
-            display: inline-block;
-            margin: 20px;
-        }
-
-        .message {
-            display: none;
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        .secret {
-            margin-top: 50px;
-            /* Уменьшим расстояние для Telegram */
-            font-size: 1.5em;
-            color: #ff1493;
-        }
-
-        #game {
-            margin-top: 50px;
-        }
-
-        #score {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-
-        .game-heart {
-            font-size: 3em;
-            cursor: pointer;
-            color: #ff1493;
-            position: absolute;
-        }
-
-        button {
-            font-size: 1.2em;
-            padding: 10px 20px;
-            background-color: #ff1493;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Главная страница -->
-    <h1>С Днём Святого Валентина! <span class="heart">❤️</span></h1>
-    <p>Нажми на сердечки, чтобы увидеть сообщения:</p>
-    <div>
-        <div class="heart" onclick="showMessage(1)">❤️</div>
-        <div class="message" id="message1">Ты самая красивая!</div>
-    </div>
-    <div>
-        <div class="heart" onclick="showMessage(2)">❤️</div>
-        <div class="message" id="message2">Я тебя люблю!</div>
-    </div>
-    <div>
-        <div class="heart" onclick="showMessage(3)">❤️</div>
-        <div class="message" id="message3">Ты делаешь меня счастливым!</div>
-    </div>
+    <div class="parallax">
+        <!-- Главная страница -->
+        <h1>С Днём Святого Валентина! <span class="heart">❤️</span></h1>
+        <p>Нажми на сердечки, чтобы увидеть сообщения:</p>
+        <div>
+            <div class="heart" onclick="showMessage(1)">❤️</div>
+            <div class="message" id="message1">Ты самая красивая!</div>
+        </div>
+        <div>
+            <div class="heart" onclick="showMessage(2)">❤️</div>
+            <div class="message" id="message2">Я тебя люблю!</div>
+        </div>
+        <div>
+            <div class="heart" onclick="showMessage(3)">❤️</div>
+            <div class="message" id="message3">Ты делаешь меня счастливым!</div>
+        </div>
 
-    <!-- Секретное сообщение -->
-    <button onclick="showSecret()">Показать секретное сообщение</button>
-    <div class="secret" id="secretMessage" style="display: none;">
-        Ты нашла моё секретное послание! Я люблю тебя больше всего на свете! ❤️
-    </div>
+        <!-- Секретное сообщение -->
+        <button onclick="showSecret()">Показать секретное сообщение</button>
+        <div class="secret" id="secretMessage" style="display: none;">
+            Ты нашла моё секретное послание! Я люблю тебя больше всего на свете! ❤️
+        </div>
 
-    <!-- Игра "Собери сердечки" -->
-    <div id="game">
-        <h2>Собери сердечки!</h2>
-        <p id="score">Собрано: 0</p>
+        <!-- Игра "Собери сердечки" -->
+        <div id="game">
+            <h2>Собери сердечки!</h2>
+            <p id="score">Собрано: 0</p>
+        </div>
     </div>
 
     <script>
@@ -109,6 +51,7 @@
         function showSecret() {
             const secretMessage = document.getElementById("secretMessage");
             secretMessage.style.display = "block";
+            secretMessage.style.opacity = "1";
         }
 
         // Игра "Собери сердечки"
