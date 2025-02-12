@@ -1,11 +1,73 @@
 // Настройки игры
-const maxHearts = 10; // Максимальное количество сердечек на экране
-const heartLifetime = 7000; // Время жизни сердечка в миллисекундах (5 секунд)
+const maxHearts = 80; // Максимальное количество сердечек на экране
+const heartLifetime = 5000; // Время жизни сердечка в миллисекундах (5 секунд)
 const hearts = []; // Массив для хранения активных сердечек
 
 // Игра "Собери сердечки"
 let score = 0;
 const scoreElement = document.getElementById("score");
+// Функция для создания букета сердечек
+function createHeartBouquet() {
+    const bouquetSize = 20; // Количество сердечек в букете
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    for (let i = 0; i < bouquetSize; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart-bouquet");
+        heart.innerHTML = `
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="#ff0000">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        `;
+
+        // Начальная позиция в центре экрана
+        heart.style.left = centerX + "px";
+        heart.style.top = centerY + "px";
+
+        // Случайное направление и скорость
+        const angle = Math.random() * 2 * Math.PI;
+        const speed = Math.random() * 5 + 2; // Скорость от 2 до 7
+
+        // Анимация вылета
+        const move = () => {
+            const x = parseFloat(heart.style.left);
+            const y = parseFloat(heart.style.top);
+
+            heart.style.left = x + Math.cos(angle) * speed + "px";
+            heart.style.top = y + Math.sin(angle) * speed + "px";
+
+            // Удаляем сердечко, если оно вылетело за пределы экрана
+            if (x < -50 || x > window.innerWidth + 50 || y < -50 || y > window.innerHeight + 50) {
+                heart.remove();
+            } else {
+                requestAnimationFrame(move);
+            }
+        };
+
+        // Добавляем сердечко на страницу и запускаем анимацию
+        document.body.appendChild(heart);
+        move();
+    }
+}
+// Функция для показа/скрытия секретного сообщения
+function showSecret() {
+    const secretMessage = document.getElementById("secretMessage");
+    if (secretMessage.style.display === "block") {
+        // Добавляем класс для анимации исчезновения
+        secretMessage.classList.add("hide");
+        // Ждём завершения анимации и скрываем сообщение
+        setTimeout(() => {
+            secretMessage.style.display = "none";
+            secretMessage.classList.remove("hide"); // Убираем класс, чтобы анимация сработала снова
+        }, 500); // 500ms — длительность анимации
+    } else {
+        secretMessage.style.display = "block"; // Показываем сообщение
+    }
+}
+
+// Запускаем создание букета при загрузке страницы
+window.onload = createHeartBouquet;
 // Открывающиеся сердечки с сообщениями
 function showMessage(id) {
     const message = document.getElementById(`message${id}`);
@@ -86,7 +148,7 @@ function removeHeart(heart) {
 
 // Функция для движения сердечка
 function moveHeart(heart) {
-    const speed = 2; // Скорость движения
+    const speed = 1; // Скорость движения
     const angle = Math.random() * 2 * Math.PI; // Случайное направление
 
     let dx = Math.cos(angle) * speed;
@@ -119,4 +181,4 @@ function moveHeart(heart) {
 }
 
 // Создаём новые сердечки каждую секунду
-setInterval(createHeart, 1000);
+setInterval(createHeart, 700);
