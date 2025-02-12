@@ -114,6 +114,14 @@ h1 {
     /* Пастельное свечение */
 }
 
+.heart-bouquet {
+    position: absolute;
+    z-index: 1000;
+    /* Чтобы сердечки были поверх других элементов */
+    opacity: 0.8;
+    transition: opacity 1s ease;
+}
+
 /* Кнопка с градиентом */
 button {
     font-size: 1.2em;
@@ -207,4 +215,47 @@ button:hover {
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация исчезновения */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Секретное сообщение */
+.secret {
+    display: none;
+    font-size: 1.5em;
+    color: #ff0000;
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.secret.hide {
+    animation: fadeOut 0.5s ease-out forwards;
 }
