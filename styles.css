@@ -1,7 +1,6 @@
 /* Основные стили */
 body {
     font-family: 'Pacifico', cursive;
-    /* Подключаем Pacifico */
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ff9a9e);
     background-size: 200% 200%;
     animation: gradient 10s ease infinite;
@@ -33,19 +32,23 @@ h1 {
 
 /* Статичные сердечки */
 .heart {
-    font-size: 3em;
-    cursor: pointer;
-    color: #ff1493;
     display: inline-block;
     margin: 20px;
-    transition: transform 0.3s ease, color 0.3s ease;
-    animation: pulse 2s infinite;
-   
+    cursor: pointer;
 }
 
-.heart:hover {
+.heart svg {
+    fill: #ff0000;
+    /* Красный цвет */
+    filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.5));
+    /* Пастельное свечение */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.heart:hover svg {
     transform: scale(1.2);
-    color: #ff69b4;
+    filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.7));
+    /* Усиливаем свечение при наведении */
 }
 
 /* Сообщения с плавным появлением */
@@ -65,7 +68,8 @@ h1 {
     margin-top: 100px;
     /* Увеличиваем отступ */
     font-size: 1.5em;
-    color: #ff1493;
+    color: #ff0000;
+    /* Красный цвет */
     opacity: 0;
     transition: opacity 1s ease;
     padding: 20px;
@@ -91,15 +95,19 @@ h1 {
 
 /* Сердечки в игре */
 .game-heart {
-    font-size: 3em;
-    cursor: pointer;
-    color: #ff69b4;
-    /* Другой цвет */
     position: absolute;
+    cursor: pointer;
     animation: float 3s ease-in-out infinite, rotate 5s linear infinite;
     /* Анимация плавания и вращения */
     opacity: 0.9;
     /* Лёгкая прозрачность */
+}
+
+.game-heart svg {
+    fill: #ff0000;
+    /* Красный цвет */
+    filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.5));
+    /* Пастельное свечение */
 }
 
 /* Кнопка с градиентом */
