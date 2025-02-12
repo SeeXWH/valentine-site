@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,34 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="parallax">
         <!-- Главная страница -->
-        <h1>С Днём Святого Валентина!</h1>
-        <p>Нажми на сердечки, чтобы увидеть сообщения:</p>
+        <h1>С Днём Святого Валентина, Юля!</h1>
+        <h3>Нажми на сердечки, чтобы увидеть сообщения:</h3>
         <div>
             <div class="heart" onclick="showMessage(1)">
                 <svg viewBox="0 0 24 24" width="48" height="48" fill="#ff0000">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
             </div>
-            <div class="message" id="message1">Ты самая красивая!</div>
+            <div class="message" id="message1">Юля! Повстречав тебя, я сразу понял что ты идеальная. И пока ни разу не
+                усомнился в этом. В тебе сочетаются красота, ум и юмор. А сейчас встретить сочетание этих качеств в
+                человеке почти невозможно. Так что гордись собой на все 100%</div>
         </div>
         <div>
             <div class="heart" onclick="showMessage(2)">
                 <svg viewBox="0 0 24 24" width="48" height="48" fill="#ff0000">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
             </div>
-            <div class="message" id="message2">Я тебя люблю!</div>
+            <div class="message" id="message2">Юля, ты — просто невероятная!
+                С тобой всегда весело, интересно и уютно. Ты — как глоток свежего воздуха в этом душном мире!</div>
         </div>
         <div>
             <div class="heart" onclick="showMessage(3)">
                 <svg viewBox="0 0 24 24" width="48" height="48" fill="#ff0000">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
             </div>
-            <div class="message" id="message3">Ты делаешь меня счастливым!</div>
+            <div class="message" id="message3">Юля, я хочу, чтобы ты знала:
+                Ты — та самая, с кем я хочу проводить время, смеяться и просто быть собой. Ты делаешь мои дни и меня
+                ярче, и я надеюсь, что смогу делать тебя такой же счастливой.</div>
         </div>
 
         <!-- Секретное сообщение -->
@@ -52,43 +62,8 @@
         </div>
     </div>
 
-    <script>
-        // Открывающиеся сердечки с сообщениями
-        function showMessage(id) {
-            const message = document.getElementById(`message${id}`);
-            message.style.display = "block";
-        }
-
-        // Секретное сообщение
-        function showSecret() {
-            const secretMessage = document.getElementById("secretMessage");
-            secretMessage.style.display = "block";
-            secretMessage.style.opacity = "1";
-        }
-
-        // Игра "Собери сердечки"
-        let score = 0;
-        const scoreElement = document.getElementById("score");
-
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("game-heart");
-            heart.innerHTML = `
-                <svg viewBox="0 0 24 24" width="48" height="48" fill="#ff0000">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-            `;
-            heart.style.left = Math.random() * 80 + "vw";
-            heart.style.top = Math.random() * 70 + "vh";
-            heart.onclick = () => {
-                score++;
-                scoreElement.textContent = `Собрано: ${score}`;
-                heart.remove();
-            };
-            document.getElementById("game").appendChild(heart);
-        }
-
-        setInterval(createHeart, 1000); // Создаём новое сердечко каждую секунду
-    </script>
+    <!-- Подключение внешнего JavaScript-файла -->
+    <script src="script.js"></script>
 </body>
+
 </html>
