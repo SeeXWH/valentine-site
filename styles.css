@@ -1,6 +1,7 @@
 /* Основные стили */
 body {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Pacifico', cursive;
+    /* Подключаем Pacifico */
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ff9a9e);
     background-size: 200% 200%;
     animation: gradient 10s ease infinite;
