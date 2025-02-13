@@ -58,6 +58,9 @@ function showSecret() {
 window.onload = createHeartBouquet;
 function showMessage(id) {
     const message = document.getElementById(`message${id}`);
+    const heartElement = document.querySelector(`.heart${id}`); // Находим сердечко, на которое нажали
+    console.log(heartElement);
+
     if (message.style.display === "block") {
         message.classList.add("hide");
         setTimeout(() => {
@@ -66,13 +69,16 @@ function showMessage(id) {
         }, 500);
     } else {
         message.style.display = "block";
+        createSmallHeartBouquet(heartElement); // Вылетают сердечки из центра сердечка
     }
 }
-
 function showSecret() {
     const secretMessage = document.getElementById("secretMessage");
+    const buttonElement = document.querySelector(".bottomButton"); // Находим кнопку, на которую нажали
+
     secretMessage.style.display = "block";
     secretMessage.style.opacity = "1";
+    createSmallHeartBouquet(buttonElement); // Вылетают сердечки из центра кнопки
 }
 
 function createHeart() {
@@ -145,6 +151,46 @@ function moveHeart(heart) {
     };
 
     move();
+}
+
+function createSmallHeartBouquet(element) {
+    const bouquetSize = 10; // Количество сердечек
+    const rect = element.getBoundingClientRect(); // Получаем координаты элемента
+    const centerX = rect.left + rect.width / 2; // Центр по X
+    const centerY = rect.top + rect.height / 2; // Центр по Y
+
+    for (let i = 0; i < bouquetSize; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart-bouquet");
+        heart.innerHTML = `
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="#cd0074">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+        `;
+
+        heart.style.left = centerX + "px";
+        heart.style.top = centerY + "px";
+
+        const angle = Math.random() * 2 * Math.PI; // Случайный угол
+        const speed = Math.random() * 5 + 2; // Случайная скорость
+
+        const move = () => {
+            const x = parseFloat(heart.style.left);
+            const y = parseFloat(heart.style.top);
+
+            heart.style.left = x + Math.cos(angle) * speed + "px";
+            heart.style.top = y + Math.sin(angle) * speed + "px";
+
+            if (x < -50 || x > window.innerWidth + 50 || y < -50 || y > window.innerHeight + 50) {
+                heart.remove(); // Удаляем сердечко, если оно вышло за пределы экрана
+            } else {
+                requestAnimationFrame(move);
+            }
+        };
+
+        document.body.appendChild(heart);
+        move();
+    }
 }
 
 setInterval(createHeart, 700);
