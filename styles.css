@@ -121,6 +121,63 @@ button:hover {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Добавляем стили для контейнера сердечек */
+.hearts-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Выравниваем по центру */
+    gap: 20px;
+    /* Расстояние между сердечками */
+}
+
+/* Стили для зигзагообразного расположения */
+.heart {
+    padding-right: 150px;
+    position: relative;
+    /* Позиционируем относительно контейнера */
+    display: inline-block;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.heart1 {
+    margin-left: 250px;
+}
+
+.heart2 {
+    margin-right: 150px;
+}
+
+/* Смещение влево и вправо относительно центра */
+.heart:nth-of-type(odd) {
+    left: 50px;
+    /* Смещение влево для нечетных сердечек */
+}
+
+.heart:nth-of-type(even) {
+    left: 50px;
+    /* Смещение вправо для четных сердечек */
+}
+
+/* Остальные стили остаются без изменений */
+.heart svg {
+    fill: #ff0000;
+    filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.5));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.heart:hover svg {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.7));
+}
+
+.bottomButton {
+    margin-top: 40px;
+}
+
 /* Анимации */
 @keyframes fadeIn {
     from {
