@@ -1,4 +1,3 @@
-/* Основные стили */
 body {
     font-family: 'Pacifico', cursive;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ff9a9e);
@@ -11,10 +10,8 @@ body {
     overflow-x: hidden;
 }
 
-/* Параллакс-эффект */
 .parallax {
     background-image: url('background.jpg');
-    /* Замени на своё изображение */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,14 +20,12 @@ body {
     padding: 20px;
 }
 
-/* Заголовок */
 h1 {
     font-size: 3.5em;
     margin-bottom: 20px;
     animation: fadeIn 2s ease-in-out;
 }
 
-/* Статичные сердечки */
 .heart {
     display: inline-block;
     margin: 20px;
@@ -39,19 +34,15 @@ h1 {
 
 .heart svg {
     fill: #ff0000;
-    /* Красный цвет */
     filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.5));
-    /* Пастельное свечение */
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .heart:hover svg {
     transform: scale(1.2);
     filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.7));
-    /* Усиливаем свечение при наведении */
 }
 
-/* Сообщения с плавным появлением и исчезновением */
 .message {
     display: none;
     font-size: 1.5em;
@@ -67,13 +58,10 @@ h1 {
     animation: fadeOut 0.5s ease-out forwards;
 }
 
-/* Секретное сообщение */
 .secret {
     margin-top: 100px;
-    /* Увеличиваем отступ */
     font-size: 1.5em;
     color: #ff0000;
-    /* Красный цвет */
     opacity: 0;
     transition: opacity 1s ease;
     padding: 20px;
@@ -82,7 +70,6 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Игра "Собери сердечки" */
 #game {
     margin-top: 50px;
     padding: 20px;
@@ -97,32 +84,26 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Сердечки в игре */
+
 .game-heart {
     position: absolute;
     cursor: pointer;
     opacity: 0;
-    /* Начальная прозрачность */
     transition: opacity 0.5s ease;
-    /* Плавное появление и исчезновение */
 }
 
 .game-heart svg {
     fill: #ff0000;
-    /* Красный цвет */
     filter: drop-shadow(0 0 3px rgba(255, 105, 180, 0.5));
-    /* Пастельное свечение */
 }
 
 .heart-bouquet {
     position: absolute;
     z-index: 1000;
-    /* Чтобы сердечки были поверх других элементов */
     opacity: 0.8;
     transition: opacity 1s ease;
 }
 
-/* Кнопка с градиентом */
 button {
     font-size: 1.2em;
     padding: 10px 20px;
@@ -217,7 +198,6 @@ button:hover {
     }
 }
 
-/* Анимация появления */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -230,7 +210,6 @@ button:hover {
     }
 }
 
-/* Анимация исчезновения */
 @keyframes fadeOut {
     from {
         opacity: 1;
@@ -243,7 +222,6 @@ button:hover {
     }
 }
 
-/* Секретное сообщение */
 .secret {
     display: none;
     font-size: 1.5em;
