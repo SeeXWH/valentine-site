@@ -28,7 +28,7 @@ h1 {
 
 .heart {
     display: inline-block;
-    margin: 40px;
+    margin: 20px;
     cursor: pointer;
 }
 
@@ -134,6 +134,7 @@ button:hover {
 
 /* Стили для зигзагообразного расположения */
 .heart {
+    padding-right: 150px;
     position: relative;
     /* Позиционируем относительно контейнера */
     display: inline-block;
@@ -142,12 +143,12 @@ button:hover {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.hr1 {
-    margin-left: 195px;
+.heart1 {
+    margin-left: 250px;
 }
 
-.hr2 {
-    margin-right: 350px;
+.heart2 {
+    margin-right: 150px;
 }
 
 /* Смещение влево и вправо относительно центра */
