@@ -156,8 +156,8 @@ function moveHeart(heart) {
 function createSmallHeartBouquet(element) {
     const bouquetSize = 10; // Количество сердечек
     const rect = element.getBoundingClientRect(); // Получаем координаты элемента
-    const centerX = rect.left + rect.width / 2; // Центр по X
-    const centerY = rect.top + rect.height / 2; // Центр по Y
+    const centerX = rect.left + rect.width / 2 + window.scrollX; // Центр по X с учетом скролла
+    const centerY = rect.top + rect.height / 2 + window.scrollY; // Центр по Y с учетом скролла
 
     for (let i = 0; i < bouquetSize; i++) {
         const heart = document.createElement("div");
@@ -168,6 +168,7 @@ function createSmallHeartBouquet(element) {
             </svg>
         `;
 
+        heart.style.position = "absolute"; // Убедимся, что сердечки позиционируются абсолютно
         heart.style.left = centerX + "px";
         heart.style.top = centerY + "px";
 
